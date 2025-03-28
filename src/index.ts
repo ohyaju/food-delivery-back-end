@@ -19,11 +19,13 @@ const users = [
 ]
 
 app.get("/",(_req:Request, res: Response)=>{
-    res.json({message: "hello"});
+    res.json({msg: "hello"});
 });
-app.post('/food', async (req , res)=>{
+app.post("/food", async (request, responce)=>{
     console.log(request.body);
-})
+
+    responce.json({success: true})
+});
 app.get ("/",(_req: Request, res: Response)=>{
     res.json({success: true, users})
 });
