@@ -1,7 +1,8 @@
-import express, { Request, Response} from "express";
+import express, { Express, Request, Response} from "express";
 
 const PORT = 8000;
 const app = express();
+
 
 const users = [
     {
@@ -23,7 +24,6 @@ app.get("/",(_req:Request, res: Response)=>{
 });
 app.post("/food", async (request, responce)=>{
     console.log(request.body);
-
     responce.json({success: true})
 });
 app.get ("/",(_req: Request, res: Response)=>{
