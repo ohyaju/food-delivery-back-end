@@ -1,4 +1,4 @@
-import express, { Application, request, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 
 import { foodRouter } from "./routes/food";
@@ -22,7 +22,7 @@ app.use("/api/v1/food", foodRouter);
 
  app.listen(PORT, async () => {
         await connection();
-        console.log(`Server is running http://localhost ${PORT}`);
+        console.log(`Server is running http://localhost: ${PORT}`);
 
     });
 
