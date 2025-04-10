@@ -11,9 +11,9 @@ const FoodSchema = new mongoose.Schema({
     ingredients: [{
         type: [String]
     }],
-    category: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "Category",
+    categoryID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category",
         required: true,
     },
 });
