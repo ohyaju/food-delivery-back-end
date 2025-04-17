@@ -1,7 +1,10 @@
 import express, { Request, Response } from "express";
+import dotenv from "dotenv";
 import { foodRouter } from "./routes/food";
 import { connection } from "./utils/connection";
 import { categoryRouter } from "./routes/category";
+
+dotenv.config();
 
 const PORT = 8000;
 const app = express();
