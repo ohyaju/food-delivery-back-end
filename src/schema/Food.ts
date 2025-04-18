@@ -16,6 +16,10 @@ const FoodSchema = new mongoose.Schema({
         ref: "category",
         required: true,
     },
+    image: {
+        type: String,
+        required: true,
+      },
 });
 
 export const Food = mongoose.model

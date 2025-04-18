@@ -12,19 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+exports.connection = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const food_1 = require("./routes/food");
-const connection_1 = require("./utils/connection");
-const category_1 = require("./routes/category");
 dotenv_1.default.config();
-const PORT = 8000;
-const app = (0, express_1.default)();
-app.use(express_1.default.json());
-app.use("/api/v1/food", food_1.foodRouter);
-app.use("/api/v1/category", category_1.categoryRouter);
-app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, connection_1.connection)();
-    console.log(`Server is running http://localhost: ${PORT}`);
-}));
-//# sourceMappingURL=index.js.map
+const MONGODB_URI = process.env.MONGODB_URI;
+const connection = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield mongoose_1.default.connect(MONGODB_URI);
+    console.log("databese connection success");
+});
+exports.connection = connection;
+//# sourceMappingURL=connection.js.map
